@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/a_scepter_blast.wav-66bf5944eec870fd91e069d639854deb.sample"
+
+[deps]
+
+source_file="res://Levels/Thorn_1/Sounds/a_scepter_blast.wav"
+dest_files=[ "res://.import/a_scepter_blast.wav-66bf5944eec870fd91e069d639854deb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,1051 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Scripts/Levels/Tighten/Tighten.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Players/Iron_rect/Iron_rect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Levels/Tighten/Tighten_camera.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Bosses/Planos/Planos.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Level_1/Music/z_pillar_hit_us.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/Level_1/Music/z_bg_p_1.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Level_1/Music/z_bg_p2.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Level_1/Music/z_bg_p_3.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Fonts/Super_webcomic_bros/Super Webcomic Bros..ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scripts/UI/Tighten/Controls.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/UI/Tighten/detect_swipes.gd" type="Script" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 723.655, 148.821 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 89.2687, 232.457 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "Default"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main_pillar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1351.59, 792.195 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main_pillar:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Main_pillar:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "Falling_main_pillar"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main_pillar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1351.59, 348.406 ), Vector2( 1351.59, 792.195 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main_pillar:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Main_pillar:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "falling_main_pillar_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main_pillar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1351.59, 792.195 ), Vector2( 1351.59, 348.406 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "rising_main_pillar_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "Default"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 926.642 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 2.0
+loop = false
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 926.642 ), Vector2( 0, 863.722 ), Vector2( 0, 926.642 ), Vector2( 0, 414.642 ), Vector2( 0, 926.642 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "side_pillars_uprising_finished"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 22.6983, 373.282 )
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "Default"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.872941 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "Flash_background"
+length = 0.5
+loop = false
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.872941 ), Color( 1, 0.851563, 0.5, 0.872941 ), Color( 1, 1, 1, 0.872941 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_again"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "Life_1_lost"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Life_1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.34984, 1.34984 ), Vector2( 1.5, 1.5 ), Vector2( 1.34984, 1.34984 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Life_1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "Life_2_lost"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Life_2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.34984, 1.34984 ), Vector2( 1.5, 1.5 ), Vector2( 1.34984, 1.34984 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Life_2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+
+resource_name = "Life_3_lost"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Life_3:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.34984, 1.34984 ), Vector2( 1.5, 1.5 ), Vector2( 1.34984, 1.34984 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Life_3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=14]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 9 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
+
+[node name="Tighten" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Iron_rect" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 138.558, 265.628 )
+
+[node name="Ground" type="StaticBody2D" parent="." index="1"]
+
+editor/display_folded = true
+modulate = Color( 0.317647, 0.243137, 0.466667, 1 )
+position = Vector2( 444.215, 799.806 )
+scale = Vector2( 2.76824, 1.66975 )
+input_pickable = false
+collision_layer = 16
+collision_mask = 5
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" index="1"]
+
+visible = false
+shape = SubResource( 1 )
+
+[node name="Tighten_camera" type="Camera2D" parent="." index="2"]
+
+position = Vector2( 603.369, 295.993 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1.5, 1.5 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Main_pillar" type="StaticBody2D" parent="." index="3"]
+
+editor/display_folded = true
+modulate = Color( 0.317647, 0.243137, 0.466667, 1 )
+position = Vector2( 1241.59, 792.195 )
+z_index = -2
+input_pickable = false
+collision_layer = 16
+collision_mask = 5
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Main_pillar" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main_pillar" index="1"]
+
+shape = SubResource( 2 )
+
+[node name="Planos" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 1343.86, 379.901 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer_main_pillar" type="AnimationPlayer" parent="." index="5"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 0.5
+anims/Default = SubResource( 3 )
+anims/Falling_main_pillar = SubResource( 4 )
+anims/Rising_main_pillar = SubResource( 5 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="Timer_meteor_spawn" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 0.6
+one_shot = false
+autostart = false
+
+[node name="Side_pillars" type="Node2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 0, 926.642 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer_side_pillars" type="AnimationPlayer" parent="Side_pillars" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Default = SubResource( 6 )
+anims/Side_pillars_uprising = SubResource( 7 )
+blend_times = [  ]
+
+[node name="Audio_hit" type="AudioStreamPlayer2D" parent="Side_pillars" index="1"]
+
+stream = ExtResource( 5 )
+volume_db = 24.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Side_pillar_2" type="Area2D" parent="." index="8"]
+
+editor/display_folded = true
+modulate = Color( 0.317647, 0.243137, 0.466667, 1 )
+position = Vector2( 234.52, 926.641 )
+z_index = -2
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Side_pillar_2" index="0"]
+
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side_pillar_2" index="1"]
+
+visible = false
+shape = SubResource( 8 )
+
+[node name="Side_pillar_1" type="Area2D" parent="." index="9"]
+
+editor/display_folded = true
+modulate = Color( 0.317647, 0.243137, 0.466667, 1 )
+position = Vector2( 188.76, 926.642 )
+z_index = -2
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Side_pillar_1" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side_pillar_1" index="1"]
+
+visible = false
+shape = SubResource( 8 )
+
+[node name="Side_pillar_5" type="Area2D" parent="." index="10"]
+
+editor/display_folded = true
+modulate = Color( 0.317647, 0.243137, 0.466667, 1 )
+position = Vector2( 188.76, 926.642 )
+z_index = -2
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Side_pillar_5" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side_pillar_5" index="1"]
+
+visible = false
+shape = SubResource( 8 )
+
+[node name="Side_pillar_4" type="Area2D" parent="." index="11"]
+
+editor/display_folded = true
+modulate = Color( 0.317647, 0.243137, 0.466667, 1 )
+position = Vector2( 188.76, 926.642 )
+z_index = -2
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Side_pillar_4" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side_pillar_4" index="1"]
+
+visible = false
+shape = SubResource( 8 )
+
+[node name="Side_pillar_3" type="Area2D" parent="." index="12"]
+
+editor/display_folded = true
+modulate = Color( 0.317647, 0.243137, 0.466667, 1 )
+position = Vector2( 143.001, 926.641 )
+z_index = -2
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Side_pillar_3" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side_pillar_3" index="1"]
+
+visible = false
+shape = SubResource( 8 )
+
+[node name="Background" type="Sprite" parent="." index="13"]
+
+pause_mode = 2
+modulate = Color( 1, 1, 1, 0.872941 )
+position = Vector2( 526.877, 31.9819 )
+scale = Vector2( 1.7235, 1.45363 )
+z_index = -5
+_sections_unfolded = [ "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Default = SubResource( 9 )
+anims/Flash_background = SubResource( 10 )
+blend_times = [  ]
+
+[node name="Mountains" type="Sprite" parent="Background" index="1"]
+
+position = Vector2( 51.7059, 134.838 )
+scale = Vector2( 0.76, 0.76 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Border" type="Sprite" parent="." index="14"]
+
+position = Vector2( 604.008, 295.516 )
+_sections_unfolded = [ "Material" ]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." index="15"]
+
+editor/display_folded = true
+position = Vector2( -281.74, 284.53 )
+input_pickable = false
+collision_layer = 16
+collision_mask = 16
+mode = 0
+mass = 1000.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Applied Forces", "Collision", "Linear" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 72.5435, 236.156, 72.5435, -385.6, 1424.43, -386.06, 1424.43, 234.215, 1444.87, 234.215, 1444.87, -404.236, 52.0948, -403.777, 49.8228, 236.156 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sounds" type="Node2D" parent="." index="16"]
+
+editor/display_folded = true
+position = Vector2( 537.691, 345.903 )
+
+[node name="Audio_bg_p_1" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+
+stream = ExtResource( 6 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_bg_p_2" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+
+stream = ExtResource( 7 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_bg_p_3" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+
+stream = ExtResource( 8 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Info_bars" type="Node2D" parent="." index="17"]
+
+pause_mode = 2
+z_index = -2
+_sections_unfolded = [ "Pause", "Z Index" ]
+
+[node name="Player_lives" type="Node2D" parent="Info_bars" index="0"]
+
+pause_mode = 2
+position = Vector2( 32.6489, 20.4056 )
+_sections_unfolded = [ "Pause" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Life_1" type="Sprite" parent="Info_bars/Player_lives" index="0"]
+
+position = Vector2( -257.517, -107.545 )
+scale = Vector2( 1.34984, 1.34984 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Life_2" type="Sprite" parent="Info_bars/Player_lives" index="1"]
+
+position = Vector2( -174.517, -107.545 )
+scale = Vector2( 1.34984, 1.34984 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Life_3" type="Sprite" parent="Info_bars/Player_lives" index="2"]
+
+position = Vector2( -92.5174, -107.545 )
+scale = Vector2( 1.34984, 1.34984 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Info_bars/Player_lives" index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Life_1_lost = SubResource( 11 )
+anims/Life_2_lost = SubResource( 12 )
+anims/Life_3_lost = SubResource( 13 )
+blend_times = [  ]
+
+[node name="Player_mana" type="Node2D" parent="Info_bars" index="1"]
+
+pause_mode = 2
+editor/display_folded = true
+position = Vector2( 31.2886, 32.649 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="Mana_back" type="Sprite" parent="Info_bars/Player_mana" index="0"]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -172.919, -47.3693 )
+scale = Vector2( 1.15085, 0.586215 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Mana_active" type="Sprite" parent="Info_bars/Player_mana" index="1"]
+
+modulate = Color( 0.102356, 0.364869, 0.671875, 1 )
+position = Vector2( -286.387, -58.9358 )
+scale = Vector2( 1.08333, 0.371604 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="Planos_health" type="Node2D" parent="Info_bars" index="2"]
+
+pause_mode = 2
+position = Vector2( 584.25, 643.371 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="Health_active" type="Sprite" parent="Info_bars/Planos_health" index="0"]
+
+modulate = Color( 0.949219, 0.287245, 0.218765, 1 )
+position = Vector2( -470.985, -9.64258 )
+scale = Vector2( 1.27593, 0.406054 )
+z_index = 5
+centered = false
+_sections_unfolded = [ "Offset", "Visibility", "Z Index" ]
+
+[node name="Health_back" type="Sprite" parent="Info_bars/Planos_health" index="1"]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 29.6479, 2.85396 )
+scale = Vector2( 1.2973, 0.649685 )
+z_index = 4
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="Text_Node2D" type="Node2D" parent="Info_bars/Planos_health" index="2"]
+
+editor/display_folded = true
+position = Vector2( 34.856, 1.97369 )
+scale = Vector2( 1.2973, 0.649685 )
+z_index = 5
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Planos_Label" type="Label" parent="Info_bars/Planos_health/Text_Node2D" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -82.0
+margin_top = -16.0
+margin_right = 258.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 10, 10 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 14 )
+text = "Planos"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_fonts" ]
+
+[node name="Controls" type="CanvasLayer" parent="." index="18"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 10 )
+
+[node name="Controls" type="TextureRect" parent="Controls" index="0"]
+
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = 74.0
+margin_top = -300.0
+margin_right = 74.0
+margin_bottom = -300.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+
+[node name="Node2D" type="Node2D" parent="Controls/Controls" index="0"]
+
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TSB_left" type="TouchScreenButton" parent="Controls/Controls/Node2D" index="0"]
+
+position = Vector2( 55.174, -26.7733 )
+normal = null
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="TSB_right" type="TouchScreenButton" parent="Controls/Controls/Node2D" index="1"]
+
+position = Vector2( 136.463, -26.7733 )
+normal = null
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="TSB_up" type="TouchScreenButton" parent="Controls/Controls/Node2D" index="2"]
+
+position = Vector2( 104.419, -75.3394 )
+normal = null
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="TSB_down" type="TouchScreenButton" parent="Controls/Controls/Node2D" index="3"]
+
+position = Vector2( 103.703, 6.77393 )
+normal = null
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="X_keys" type="TextureRect" parent="Controls" index="1"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1196.0
+margin_top = -717.0
+margin_right = -1196.0
+margin_bottom = -717.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+
+[node name="TSB_shoot" type="TouchScreenButton" parent="Controls/X_keys" index="0"]
+
+position = Vector2( 1012.42, 383.155 )
+normal = null
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Detect_gestures" type="Node2D" parent="." index="19"]
+
+[node name="detect_swipes" type="Node2D" parent="Detect_gestures" index="0"]
+
+script = ExtResource( 11 )
+
+[node name="detect_taps" type="Node2D" parent="Detect_gestures" index="1"]
+
+[connection signal="timeout" from="Timer_meteor_spawn" to="." method="_on_Timer_meteor_spawn_timeout"]
+
+[connection signal="body_entered" from="Side_pillar_2" to="." method="_on_Side_pillar_body_entered"]
+
+[connection signal="body_entered" from="Side_pillar_1" to="." method="_on_Side_pillar_body_entered"]
+
+[connection signal="body_entered" from="Side_pillar_5" to="." method="_on_Side_pillar_body_entered"]
+
+[connection signal="body_entered" from="Side_pillar_4" to="." method="_on_Side_pillar_body_entered"]
+
+[connection signal="body_entered" from="Side_pillar_3" to="." method="_on_Side_pillar_body_entered"]
+
+

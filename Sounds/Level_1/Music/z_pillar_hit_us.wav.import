@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/z_pillar_hit_us.wav-ebf142caa177ca6294d02e30a1b5c905.sample"
+
+[deps]
+
+source_file="res://Sounds/Level_1/Music/z_pillar_hit_us.wav"
+dest_files=[ "res://.import/z_pillar_hit_us.wav-ebf142caa177ca6294d02e30a1b5c905.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

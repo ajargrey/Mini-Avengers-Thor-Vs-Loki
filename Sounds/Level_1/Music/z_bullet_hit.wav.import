@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/z_bullet_hit.wav-c9112274eb5b6b24d072ae18096583ef.sample"
+
+[deps]
+
+source_file="res://Sounds/Level_1/Music/z_bullet_hit.wav"
+dest_files=[ "res://.import/z_bullet_hit.wav-c9112274eb5b6b24d072ae18096583ef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

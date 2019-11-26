@@ -1,0 +1,434 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scripts/Players/Iron_rect/iron_rect_body.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Players/Iron_rect/Asset 6.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Players/Iron_rect/Asset 8.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Players/Iron_rect/Asset 10.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Players/Iron_rect/Asset 7.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Comic_effects/Asset 1comic_effect.png" type="Texture" id=6]
+[ext_resource path="res://Sounds/Level_1/Music/z_jump.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Level_1/Music/z_charge_laser.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/Level_1/Music/z_land.wav" type="AudioStream" id=9]
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 46.3796, 72.0217 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Hand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Blaster",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 10.0081
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "Hold_shoot"
+length = 0.01
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Iron_hand_right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 70.0312, 35.2596 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Iron_hand_right:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Iron_hand_right/AnimatedSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Iron_hand_right/AnimatedSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Hand" ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.4
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Iron_hand_right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.36 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 70.0312, 35.2596 ), Vector2( 77.5291, 16.7353 ), Vector2( 82.5277, 4.38574 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Iron_hand_right/AnimatedSprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.21, 0.36 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "Hand", "Blaster", "Blaster" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Iron_hand_right:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.39 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Iron_hand_right/AnimatedSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.19, 0.2, 0.39 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.3, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_ready"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "Expand_wings"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Wings:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "Shrink_wings"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Wings:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.3, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "Default"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("snap_effect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "Hit"
+length = 0.5
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("snap_effect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("snap_effect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.35, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-005, 1e-005 ), Vector2( 2, 2 ), Vector2( 2, 2 ), Vector2( 1e-005, 1e-005 ) ]
+}
+
+[node name="Iron_rect" type="Node2D" index="0"]
+
+position = Vector2( 541.81, 311.274 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Iron_rect_body" type="KinematicBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 24
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="Iron_rect_body" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Iron_rect_body" index="1"]
+
+visible = false
+shape = SubResource( 10 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Iron_hand_left" type="Area2D" parent="Iron_rect_body" index="2"]
+
+editor/display_folded = true
+position = Vector2( -62.8036, 36.3294 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Iron_rect_body/Iron_hand_left" index="0"]
+
+frames = SubResource( 2 )
+animation = "Hand"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Iron_rect_body/Iron_hand_left" index="1"]
+
+visible = false
+position = Vector2( -0.0493164, 0.459778 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer_hands" type="AnimationPlayer" parent="Iron_rect_body" index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 5.0
+anims/Hold_shoot = SubResource( 4 )
+anims/Shoot = SubResource( 5 )
+blend_times = [  ]
+_sections_unfolded = [ "Pause", "Playback Options" ]
+
+[node name="Iron_hand_right" type="Area2D" parent="Iron_rect_body" index="4"]
+
+editor/display_folded = true
+position = Vector2( 77.8415, 15.9635 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Iron_rect_body/Iron_hand_right" index="0"]
+
+scale = Vector2( 0.336842, 0.526316 )
+frames = SubResource( 2 )
+animation = "Hand"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Iron_rect_body/Iron_hand_right" index="1"]
+
+visible = false
+position = Vector2( 6.10352e-005, 0.323547 )
+shape = SubResource( 3 )
+
+[node name="Position" type="Node2D" parent="Iron_rect_body/Iron_hand_right" index="2"]
+
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="AnimationPlayer_wings" type="AnimationPlayer" parent="Iron_rect_body" index="5"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 5.0
+anims/Expand_wings = SubResource( 6 )
+anims/Shrink_wings = SubResource( 7 )
+blend_times = [  ]
+_sections_unfolded = [ "Pause", "Playback Options" ]
+
+[node name="Wings" type="Sprite" parent="Iron_rect_body" index="6"]
+
+position = Vector2( -23.5229, -15.437 )
+scale = Vector2( 0.3, 0.5 )
+z_index = -1
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="snap_effect" type="Sprite" parent="Iron_rect_body" index="7"]
+
+pause_mode = 2
+visible = false
+position = Vector2( 4.54419, 59.0741 )
+scale = Vector2( 1e-005, 1e-005 )
+z_index = 3
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="AnimationPlayer_snap_effect" type="AnimationPlayer" parent="Iron_rect_body" index="8"]
+
+pause_mode = 2
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Default = SubResource( 8 )
+anims/Hit = SubResource( 9 )
+blend_times = [  ]
+_sections_unfolded = [ "Pause" ]
+
+[node name="Timer_die" type="Timer" parent="Iron_rect_body" index="9"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Sounds" type="Node2D" parent="Iron_rect_body" index="10"]
+
+[node name="Audio_jump" type="AudioStreamPlayer2D" parent="Iron_rect_body/Sounds" index="0"]
+
+stream = ExtResource( 7 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_charge_shoot" type="AudioStreamPlayer2D" parent="Iron_rect_body/Sounds" index="1"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "Pause" ]
+
+[node name="Audio_land" type="AudioStreamPlayer2D" parent="Iron_rect_body/Sounds" index="2"]
+
+stream = ExtResource( 9 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[connection signal="timeout" from="Iron_rect_body/Timer_die" to="Iron_rect_body" method="_on_Timer_die_timeout"]
+
+

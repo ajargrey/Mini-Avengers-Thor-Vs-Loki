@@ -1,0 +1,549 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Levels/Thorn_1/Scripts/Arena/Arena.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Thorn_1/Assets/Arena/Background/Untitled-2.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Thorn_1/Assets/Arena/Ground/Asset 3logo7.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Thorn_1/Scripts/Arena/Controls.gd" type="Script" id=4]
+[ext_resource path="res://Levels/Thorn_1/Assets/Controls/lineDark19.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Thorn_1/Assets/Controls/flatDark23.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Thorn_1/Assets/Controls/lineDark20.png" type="Texture" id=7]
+[ext_resource path="res://Levels/Thorn_1/Assets/Controls/flatDark24.png" type="Texture" id=8]
+[ext_resource path="res://Levels/Thorn_1/Assets/Controls/lineDark44.png" type="Texture" id=9]
+[ext_resource path="res://Levels/Thorn_1/Assets/Controls/flatDark48.png" type="Texture" id=10]
+[ext_resource path="res://Levels/Thorn_1/Assets/Controls/lineDark21.png" type="Texture" id=11]
+[ext_resource path="res://Levels/Thorn_1/Assets/Controls/flatDark25.png" type="Texture" id=12]
+[ext_resource path="res://Levels/Thorn_1/Scenes/Player/Thorn.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Levels/Thorn_1/Scripts/Arena/Camera2D.gd" type="Script" id=14]
+[ext_resource path="res://Levels/Thorn_1/Scenes/Enemies/Pokey.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Levels/Thorn_1/Assets/Info_bars/Asset 24bar_ui.png" type="Texture" id=16]
+[ext_resource path="res://Levels/Thorn_1/Assets/Info_bars/Asset 22life_ui.png" type="Texture" id=17]
+[ext_resource path="res://Levels/Thorn_1/Sounds/a_bg_p_1.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Levels/Thorn_1/Sounds/a_bg_p_2.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Levels/Thorn_1/Sounds/a_bg_p_3 .ogg" type="AudioStream" id=20]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Flash_red"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.945313, 0.465271, 0.465271, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1033.18, 7.267 )
+
+[sub_resource type="Animation" id=4]
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.9, 1.9, 2.9, 3.9, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.992188, 0.356567, 0.356567, 1 ), Color( 0.177948, 0.929688, 0.26017, 1 ), Color( 0.910156, 0.341309, 0.887936, 1 ), Color( 0.893421, 0.933594, 0.419388, 1 ), Color( 0.43602, 0.356567, 0.992188, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.43602, 0.356567, 0.992188, 1 ), Color( 0.992188, 0.356567, 0.356567, 1 ), Color( 0.177948, 0.929688, 0.26017, 1 ), Color( 0.910156, 0.341309, 0.887936, 1 ), Color( 0.893421, 0.933594, 0.419388, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1.1, 2.1, 3.1, 4.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.43602, 0.356567, 0.992188, 1 ), Color( 0.992188, 0.356567, 0.356567, 1 ), Color( 0.177948, 0.929688, 0.26017, 1 ), Color( 0.910156, 0.341309, 0.887936, 1 ), Color( 0.893421, 0.933594, 0.419388, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 1.2, 2.2, 3.2, 4.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.43602, 0.356567, 0.992188, 1 ), Color( 0.992188, 0.356567, 0.356567, 1 ), Color( 0.177948, 0.929688, 0.26017, 1 ), Color( 0.910156, 0.341309, 0.887936, 1 ), Color( 0.893421, 0.933594, 0.419388, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Health_box_1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Health_box_1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "resume_game"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Health_box_2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Health_box_2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "resume_game"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Health_box_3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Health_box_3:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "resume_game"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Health_box_1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Health_box_2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Health_box_3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Arena" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -3
+
+[node name="AP_background" type="AnimationPlayer" parent="Background"]
+pause_mode = 2
+autoplay = "Default"
+anims/Default = SubResource( 1 )
+anims/Flash_red = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Background"]
+position = Vector2( 550.175, 296.724 )
+texture = ExtResource( 2 )
+
+[node name="Ground" type="Node2D" parent="."]
+scale = Vector2( 3, 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+position = Vector2( 584.174, 485.267 )
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+position = Vector2( 17.1884, -6.31677 )
+shape = SubResource( 3 )
+
+[node name="Layer_1" type="Node2D" parent="Ground/StaticBody2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ground/StaticBody2D/Layer_1"]
+autoplay = "Bridge_layer_1"
+anims/Bridge_layer_1 = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D/Layer_1"]
+modulate = Color( 0.893421, 0.933594, 0.419388, 1 )
+position = Vector2( -12.2347, -6.76617 )
+texture = ExtResource( 3 )
+
+[node name="Layer_2" type="Node2D" parent="Ground/StaticBody2D"]
+editor/display_folded = true
+position = Vector2( 0.00012207, 15.9606 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ground/StaticBody2D/Layer_2"]
+autoplay = "Bridge_layer_1"
+anims/Bridge_layer_1 = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D/Layer_2"]
+modulate = Color( 0.893421, 0.933594, 0.419388, 1 )
+position = Vector2( -12.2347, -6.76617 )
+texture = ExtResource( 3 )
+
+[node name="Layer_3" type="Node2D" parent="Ground/StaticBody2D"]
+editor/display_folded = true
+position = Vector2( 0.00012207, 31.9606 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ground/StaticBody2D/Layer_3"]
+autoplay = "Bridge_layer_1"
+anims/Bridge_layer_1 = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D/Layer_3"]
+modulate = Color( 0.893421, 0.933594, 0.419388, 1 )
+position = Vector2( -12.2347, -6.76617 )
+texture = ExtResource( 3 )
+
+[node name="Layer_4" type="Node2D" parent="Ground/StaticBody2D"]
+editor/display_folded = true
+position = Vector2( 0.00012207, 46.9606 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ground/StaticBody2D/Layer_4"]
+autoplay = "Bridge_layer_1"
+anims/Bridge_layer_1 = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D/Layer_4"]
+modulate = Color( 0.893421, 0.933594, 0.419388, 1 )
+position = Vector2( -12.2347, -6.76617 )
+texture = ExtResource( 3 )
+
+[node name="Controls" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
+
+[node name="Arrow_keys" type="Control" parent="Controls"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 126.0
+margin_top = -383.0
+margin_right = 126.0
+margin_bottom = -383.0
+
+[node name="Node2D" type="Sprite" parent="Controls/Arrow_keys"]
+position = Vector2( -108.554, 3.89932 )
+offset = Vector2( 108.554, -3.89932 )
+
+[node name="TSB_left" type="TouchScreenButton" parent="Controls/Arrow_keys/Node2D"]
+position = Vector2( 14.4747, 2.90924 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 6 )
+
+[node name="TSB_right" type="TouchScreenButton" parent="Controls/Arrow_keys/Node2D"]
+position = Vector2( 232.979, 2.82562 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 8 )
+
+[node name="Shoot_key" type="Control" parent="Controls"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1200.0
+margin_top = -600.0
+margin_right = -1200.0
+margin_bottom = -600.0
+
+[node name="Node2D" type="Sprite" parent="Controls/Shoot_key"]
+position = Vector2( 1188.89, 298.171 )
+offset = Vector2( -165.808, -7.629 )
+
+[node name="TSB_shoot" type="TouchScreenButton" parent="Controls/Shoot_key/Node2D"]
+position = Vector2( -157.432, -62.0923 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 10 )
+
+[node name="TSB_up" type="TouchScreenButton" parent="Controls/Shoot_key/Node2D"]
+position = Vector2( -159.936, -205.635 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 12 )
+
+[node name="Thorn" parent="." instance=ExtResource( 13 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 602.762, 297.956 )
+current = true
+script = ExtResource( 14 )
+
+[node name="Pokey" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1120.31, 302.104 )
+
+[node name="Timer_pokey_spawner" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="Info_bars" type="CanvasLayer" parent="."]
+
+[node name="Boss_health" type="Control" parent="Info_bars"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -879.0
+margin_top = -60.0
+margin_right = -879.0
+margin_bottom = -60.0
+
+[node name="Node2D" type="Sprite" parent="Info_bars/Boss_health"]
+position = Vector2( 827.706, 89.2651 )
+offset = Vector2( -85.8959, 37.4608 )
+
+[node name="Health_background" type="Sprite" parent="Info_bars/Boss_health/Node2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -89.7833, 30.2959 )
+scale = Vector2( 0.220169, 0.865777 )
+texture = ExtResource( 16 )
+
+[node name="Health_active" type="Sprite" parent="Info_bars/Boss_health/Node2D"]
+modulate = Color( 0.94902, 0.286275, 0.215686, 1 )
+position = Vector2( -89.5482, 30.6819 )
+scale = Vector2( 0.193771, 0.569934 )
+z_index = 1
+texture = ExtResource( 16 )
+
+[node name="Player_health" type="Control" parent="Info_bars"]
+margin_left = 53.0
+margin_top = 61.0
+margin_right = 93.0
+margin_bottom = 101.0
+
+[node name="Node2D" type="Sprite" parent="Info_bars/Player_health"]
+editor/display_folded = true
+position = Vector2( -44.827, -37.9167 )
+offset = Vector2( 44.827, 37.9167 )
+
+[node name="Health_box_1" type="Sprite" parent="Info_bars/Player_health/Node2D"]
+position = Vector2( 44.827, 37.9167 )
+texture = ExtResource( 17 )
+
+[node name="Health_box_3" type="Sprite" parent="Info_bars/Player_health/Node2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 164.827, 37.9167 )
+texture = ExtResource( 17 )
+
+[node name="Health_box_2" type="Sprite" parent="Info_bars/Player_health/Node2D"]
+position = Vector2( 104.827, 37.9167 )
+texture = ExtResource( 17 )
+
+[node name="AP_health" type="AnimationPlayer" parent="Info_bars/Player_health/Node2D"]
+pause_mode = 2
+autoplay = "Health_3"
+anims/Health_0 = SubResource( 8 )
+anims/Health_1 = SubResource( 9 )
+anims/Health_2 = SubResource( 10 )
+anims/Health_3 = SubResource( 11 )
+
+[node name="Timer_game_over" type="Timer" parent="."]
+
+[node name="Coordinates" type="CanvasLayer" parent="."]
+editor/display_folded = true
+
+[node name="Control" type="Control" parent="Coordinates"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -300.0
+margin_right = 40.0
+margin_bottom = -260.0
+
+[node name="x1" type="Node2D" parent="Coordinates/Control"]
+position = Vector2( 0, 305.996 )
+
+[node name="Control2" type="Control" parent="Coordinates"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1200.0
+margin_top = -300.0
+margin_right = -1160.0
+margin_bottom = -260.0
+
+[node name="x2" type="Node2D" parent="Coordinates/Control2"]
+position = Vector2( 1205.44, 299.815 )
+
+[node name="Control3" type="Control" parent="Coordinates"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -600.0
+margin_right = -560.0
+margin_bottom = 40.0
+
+[node name="y1" type="Node2D" parent="Coordinates/Control3"]
+position = Vector2( 627.447, -3.09087 )
+
+[node name="Control4" type="Control" parent="Coordinates"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -600.0
+margin_top = -600.0
+margin_right = -560.0
+margin_bottom = -560.0
+
+[node name="y2" type="Node2D" parent="Coordinates/Control4"]
+position = Vector2( 605.811, 599.629 )
+
+[node name="Audio_bg_1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 556.357, 333.814 )
+stream = ExtResource( 18 )
+
+[node name="Audio_bg_2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 547.085, 355.451 )
+stream = ExtResource( 19 )
+
+[node name="Audio_bg_3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 553.267, 383.268 )
+stream = ExtResource( 20 )
+[connection signal="timeout" from="Timer_pokey_spawner" to="." method="_on_Timer_pokey_spawner_timeout"]
+[connection signal="timeout" from="Timer_game_over" to="." method="_on_Timer_game_over_timeout"]

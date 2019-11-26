@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/a_jump.wav-ed529a1bdc4ce31e5b26070a08431ba8.sample"
+
+[deps]
+
+source_file="res://Levels/Thorn_1/Sounds/a_jump.wav"
+dest_files=[ "res://.import/a_jump.wav-ed529a1bdc4ce31e5b26070a08431ba8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

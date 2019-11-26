@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/z_charge_laser.ogg-552025f91aadc8a46c1bd92b1a59a58c.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Level_1/Music/z_charge_laser.ogg"
+dest_files=[ "res://.import/z_charge_laser.ogg-552025f91aadc8a46c1bd92b1a59a58c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0.0

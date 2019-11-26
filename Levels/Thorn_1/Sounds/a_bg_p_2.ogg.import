@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/a_bg_p_2.ogg-8ed5f562b59eb804bfa20e00bb9409a0.oggstr"
+
+[deps]
+
+source_file="res://Levels/Thorn_1/Sounds/a_bg_p_2.ogg"
+dest_files=[ "res://.import/a_bg_p_2.ogg-8ed5f562b59eb804bfa20e00bb9409a0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

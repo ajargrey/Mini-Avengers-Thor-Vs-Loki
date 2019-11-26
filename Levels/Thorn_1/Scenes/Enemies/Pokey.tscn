@@ -1,0 +1,617 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Levels/Thorn_1/Scripts/Enemy/Pokey_body.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Thorn_1/Assets/Enemies/pokey/Asset 10logo7.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Thorn_1/Assets/Enemies/pokey/Asset 9logo7.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Thorn_1/Assets/Enemies/pokey/Asset 11logo7.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Thorn_1/Assets/Enemies/Pokey_effects/Asset 1effect.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Thorn_1/Assets/Enemies/Pokey_effects/Asset 2iceknife.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Thorn_1/Assets/Enemies/Pokey_effects/Asset 1pow_fect.png" type="Texture" id=7]
+[ext_resource path="res://Levels/Thorn_1/Sounds/a_pokey_hit.wav" type="AudioStream" id=8]
+[ext_resource path="res://Levels/Thorn_1/Sounds/a_scepter_blast.wav" type="AudioStream" id=9]
+[ext_resource path="res://Levels/Thorn_1/Sounds/a_throw_knife.wav" type="AudioStream" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 26.074, 52.0975 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 3.21434, 51.073 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "Idle"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pokey_scepter:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pokey_scepter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 43.2707, -17.0096 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pokey_hand_right:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 43.1688, -16.0014 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pokey_scepter:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "Knife_throwing"
+length = 1.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pokey_scepter:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pokey_hand_right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 46.7788, 22.8062 ), Vector2( 49.4863, 3.85363 ), Vector2( 55.3525, -12.8427 ), Vector2( 61.2188, -29.539 ), Vector2( 43.1688, -23.2215 ), Vector2( 20.6061, -19.6115 ), Vector2( 3.45863, -16.9039 ), Vector2( 13.3862, 2.04863 ), Vector2( 20.6062, 14.6837 ), Vector2( 46.7788, 22.8062 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pokey_hand_left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -38.3269, 24.571 ), Vector2( -35.6194, 28.181 ), Vector2( -29.3018, 30.8885 ), Vector2( -40.1319, 20.961 ), Vector2( -44.6444, 15.546 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "right" ],
+"method": "Throw_knife"
+}, {
+"args": [ "left" ],
+"method": "Throw_knife"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "Point_scepter"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pokey_scepter:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pokey_hand_left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -39.4082, -4.69353 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pokey_hand_right:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 37.7537, -15.0989 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pokey_scepter:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -39.2707, -7.00963 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pokey_scepter:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -95.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pokey_hand_right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43.1688, -16.0014 ), Vector2( -5.56634, -24.1239 ), Vector2( -5.56634, -24.1239 ), Vector2( 43.1688, -16.0014 ), Vector2( 43.1688, -16.0014 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pokey_scepter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 43.2707, -17.0096 ), Vector2( -5.46445, -24.2297 ), Vector2( -5.46445, -24.2297 ), Vector2( 43.2707, -17.0096 ), Vector2( 43.2707, -17.0096 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pokey_scepter:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -70.0, -70.0, -70.0, 0.0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "Scepter_blast"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pokey_scepter:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("VFX:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VFX:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-005, 1e-005 ), Vector2( 1.8, 1.8 ), Vector2( 2, 2 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "After_spawning"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("VFX:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VFX:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-005, 1e-005 ), Vector2( 1.8, 1.8 ), Vector2( 2, 2 ), Vector2( 1e-005, 1e-005 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "Powf_effect"
+length = 0.2
+loop = false
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("VFX:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VFX:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-005, 1e-005 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.18 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "dead"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VFX:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.18 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 7.22003, -13.5375 ), Vector2( 7.22003, -13.5375 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.12, 0.18 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pokey_hand_left:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.12, 0.18 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Pokey_hand_right:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.12, 0.18 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Pokey_scepter/Sprite:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.12, 0.18 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+
+[node name="Pokey" type="Node2D"]
+
+[node name="Pokey_body" type="KinematicBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 18
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="Pokey_body" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pokey_body" index="1"]
+
+visible = false
+shape = SubResource( 1 )
+
+[node name="Pokey_hand_left" type="Sprite" parent="Pokey_body" index="2"]
+
+position = Vector2( -39.4082, -4.69353 )
+z_index = -1
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Pokey_hand_right" type="Sprite" parent="Pokey_body" index="3"]
+
+position = Vector2( 43.1688, -16.0014 )
+z_index = 2
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Pokey_scepter" type="Area2D" parent="Pokey_body" index="4"]
+
+position = Vector2( 43.2707, -17.0096 )
+z_index = 1
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="Pokey_body/Pokey_scepter" index="0"]
+
+position = Vector2( 0.902489, 17.1476 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pokey_body/Pokey_scepter" index="1"]
+
+visible = false
+position = Vector2( 0.902489, 17.1476 )
+shape = SubResource( 2 )
+
+[node name="Scepter_point" type="Node2D" parent="Pokey_body/Pokey_scepter" index="2"]
+
+position = Vector2( -7.62939e-006, -28.8801 )
+
+[node name="AP_attacks" type="AnimationPlayer" parent="Pokey_body" index="5"]
+
+root_node = NodePath("..")
+autoplay = "Idle"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 0.5
+anims/Idle = SubResource( 3 )
+anims/Knife_throwing = SubResource( 4 )
+anims/Point_scepter = SubResource( 5 )
+anims/Scepter_blasting = SubResource( 6 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="AP_vfx" type="AnimationPlayer" parent="Pokey_body" index="6"]
+
+root_node = NodePath("..")
+autoplay = "Poof_effect"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Poof_effect = SubResource( 7 )
+anims/Pow_effect = SubResource( 8 )
+anims/Powf_effect = SubResource( 9 )
+blend_times = [  ]
+
+[node name="VFX" type="Sprite" parent="Pokey_body" index="7"]
+
+position = Vector2( 7.22003, -13.5375 )
+scale = Vector2( 1e-005, 1e-005 )
+z_index = 5
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Area2D" type="Area2D" parent="Pokey_body" index="8"]
+
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pokey_body/Area2D" index="0"]
+
+position = Vector2( 0, 4.76837e-007 )
+shape = SubResource( 1 )
+
+[node name="Audio_hit" type="AudioStreamPlayer2D" parent="Pokey_body" index="9"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_scepter_blast" type="AudioStreamPlayer2D" parent="Pokey_body" index="10"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_throw_knife" type="AudioStreamPlayer2D" parent="Pokey_body" index="11"]
+
+stream = ExtResource( 10 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Timer_final_moments" type="Timer" parent="Pokey_body" index="12"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[connection signal="area_entered" from="Pokey_body/Pokey_scepter" to="Pokey_body" method="_on_Pokey_scepter_area_entered"]
+
+[connection signal="area_entered" from="Pokey_body/Area2D" to="Pokey_body" method="_on_Area2D_area_entered"]
+
+[connection signal="timeout" from="Pokey_body/Timer_final_moments" to="Pokey_body" method="_on_Timer_final_moments_timeout"]
+
+

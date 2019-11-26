@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/z_meteor_hit_ground.wav-b7556314e3ec314673a7dd2db60de9fe.sample"
+
+[deps]
+
+source_file="res://Sounds/Level_1/Music/z_meteor_hit_ground.wav"
+dest_files=[ "res://.import/z_meteor_hit_ground.wav-b7556314e3ec314673a7dd2db60de9fe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

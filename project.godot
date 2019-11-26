@@ -1,0 +1,46 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Mini Endgame"
+run/main_scene="res://Levels/Thorn_1/Scenes/Thorn_1_Level.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Global_thorn_1="*res://Levels/Thorn_1/Scripts/Global/Global_thorn_1.gd"
+
+[display]
+
+window/size/width=1200
+window/stretch/aspect="keep_width"
+window/stretch/shrink="1"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Player_projectiles"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Enemy_projectiles"
+2d_physics/layer_5="Ground"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
